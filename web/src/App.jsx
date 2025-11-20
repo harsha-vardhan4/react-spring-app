@@ -8,6 +8,7 @@ import Tool from "./pages/Tool";
 import Blog from "./pages/Blog";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -7,37 +7,51 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ==================== Hero Section ==================== */
+/* ==================== Hero Section (Main Section) ==================== */
 .home-hero-container {
-  flex-grow: 1;
-  position: relative;
-  max-width: 100%;
-  border-radius: 12px;
-  padding: 6rem 3rem;
+  height: 100vh; /* Full screen height */
+  display: flex; /* Flex layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  position: relative; /* Ensure relative positioning for background */
+  padding: 2rem; /* Padding for spacing inside */
   text-align: center;
   color: #0D1B2A;
-  background: url("../assets/images.jpeg") center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden; /* Hide anything outside */
+}
+
+/* Hero background */
+.home-hero-container::before,
+.how-it-works::before,
+.how-it-works::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: linear-gradient(135deg, rgba(0, 0, 77, 0.15), rgba(0, 0, 51, 0.05));
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.how-it-works {
+  min-height: 100vh;
+  background: #f9fafc;
+  padding: 6rem 3rem;
+  position: relative;
+  text-align: center;
+  overflow: hidden; /* <-- Add this */
+}
+
+.how-it-works::after {
+  animation: rotateBG 60s linear infinite reverse;
 }
 
 .home-hero-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.7); /* light overlay for readability */
-  border-radius: 12px;
   z-index: 1;
-}
-
-.home-hero-container > * {
-  position: relative;
-  z-index: 2;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
 }
 
 .hero-bg {
@@ -54,23 +68,15 @@
   opacity: 1;
 }
 
-.fade-in {
-  opacity: 1;
-}
+.fade-in { opacity: 1; }
+.fade-out { opacity: 0; }
 
-.fade-out {
-  opacity: 0;
-}
-
-/* Wrap content to be above background */
-.hero-content {
+.hero-content,
+.hiw-title,
+.hiw-subtitle,
+.hiw-steps {
   position: relative;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }
 
 /* ==================== Trust Badges ==================== */
@@ -95,18 +101,130 @@
   font-weight: 600;
 }
 
-/* ==================== Headings ==================== */
-h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 1.2rem;
-  line-height: 1.2;
+/* ==================== Intro Section ==================== */
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  min-height: 100svh;
+  gap: 3rem;
 }
 
-.highlight {
-  color: #0D1B2A;
-  font-weight: 900;
+.intro-image {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  height: 100%;
+  min-height: 450px;
 }
+
+.intro-content {
+  flex: 1;
+  padding: 1rem;
+}
+
+.intro-content h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #0d1b2a;
+}
+
+.intro-content p {
+  font-size: 1.2rem;
+  color: #425466;
+  line-height: 1.7;
+  max-width: 550px;
+}
+
+/* ==================== Contact Section ==================== */
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #f9fafc; /* SAME background as previous section */
+  padding: 4rem 3rem 6rem;
+  margin-top: 0; /* remove gap */
+}
+
+/* Left Column (Form) */
+.contact-left {
+  flex: 1;
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  gap: 2rem;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0d1b2a;
+  margin-bottom: 0.5rem;
+}
+
+/* Remove border radius and big padding */
+input,
+textarea {
+  background: #e8e8e8;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0; /* remove curves */
+}
+
+/* Submit Button */
+.submit-btn {
+  background: #c65a02; /* your theme orange */
+  color: white;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.submit-btn:hover {
+  background: #a04902;
+}
+
+/* Right Column (Text) */
+.contact-right {
+  flex: 1;
+  padding-left: 3rem;
+}
+
+.contact-right h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin-bottom: 1.2rem;
+}
+
+.contact-right p {
+  font-size: 1.15rem;
+  color: #425466;
+  line-height: 1.6;
+}
+
+/* ==================== Headings ==================== */
+h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 1.2rem; line-height: 1.2; }
+.highlight { color: #001f4d; font-weight: 900; }
 
 /* ==================== Subtext ==================== */
 .subtext {
@@ -121,7 +239,7 @@ h1 {
 
 /* ==================== Hero Button ==================== */
 .explore-btn {
-  background-color: #0D1B2A;
+  background-color: #001f4d;
   color: white;
   padding: 1rem 3rem;
   font-size: 1.2rem;
@@ -131,37 +249,24 @@ h1 {
   font-weight: 800;
   transition: background-color 0.3s ease;
 }
-
-.explore-btn:hover {
-  background-color: #091424;
-}
+.explore-btn:hover { background-color: #001633; }
 
 /* ==================== How It Works Section ==================== */
 .how-it-works {
   background: #f9fafc;
   padding: 6rem 3rem;
-  text-align: center;
-  color: #0D1B2A;
 }
 
-.hiw-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
+/* Floating shapes animation */
+@keyframes rotateBG {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.hiw-subtitle {
-  font-size: 1.2rem;
-  color: #425466;
-  max-width: 700px;
-  margin: 0 auto 3rem auto;
-  line-height: 1.6;
-}
-
-.real-humans {
-  color: #007a5a;
-  font-weight: 800;
-}
+/* ==================== How It Works Content ==================== */
+.hiw-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+.hiw-subtitle { font-size: 1.2rem; color: #425466; max-width: 700px; margin: 0 auto 3rem auto; line-height: 1.6; }
+.real-humans { color: #001f4d; font-weight: 800; }
 
 .hiw-steps {
   display: flex;
@@ -178,82 +283,82 @@ h1 {
   flex: 1 1 300px;
   max-width: 340px;
   text-align: left;
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: all 0.8s ease-out;
 }
 
-.hiw-step h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-}
+.hiw-step.visible { opacity: 1; transform: translateY(0) scale(1); }
 
-.hiw-step p {
-  font-size: 1.05rem;
-  color: #425466;
-  line-height: 1.6;
-}
+.hiw-step h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.8rem; }
+.hiw-step p { font-size: 1.05rem; color: #425466; line-height: 1.6; }
 
 /* ==================== Responsive Styles ==================== */
 @media (max-width: 1024px) {
-  .home-hero-container {
-    padding: 4rem 2rem;
-  }
-
-  h1 {
-    font-size: 2.4rem;
-  }
-
-  .subtext {
-    font-size: 1.1rem;
-  }
-
-  .explore-btn {
-    padding: 0.9rem 2.5rem;
-    font-size: 1.1rem;
-  }
+  .home-hero-container, .how-it-works { padding: 4rem 2rem; }
+  h1 { font-size: 2.4rem; }
+  .subtext { font-size: 1.1rem; }
+  .explore-btn { padding: 0.9rem 2.5rem; font-size: 1.1rem; }
 }
 
 @media (max-width: 768px) {
-  .home-hero-container {
-    padding: 3rem 1.5rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .subtext {
-    font-size: 1rem;
-  }
-
-  .explore-btn {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-  }
-
-  .hiw-title {
-    font-size: 2rem;
-  }
-
-  .hiw-subtitle {
-    font-size: 1.05rem;
-  }
-
-  .hiw-step {
-    padding: 2rem 1.5rem;
-  }
+  .home-hero-container, .how-it-works { padding: 3rem 1.5rem; }
+  h1 { font-size: 2rem; }
+  .subtext { font-size: 1rem; }
+  .explore-btn { width: 100%; padding: 0.8rem 1rem; font-size: 1rem; }
+  .hiw-title { font-size: 2rem; }
+  .hiw-subtitle { font-size: 1.05rem; }
+  .hiw-step { padding: 2rem 1.5rem; }
 }
 
 @media (max-width: 480px) {
-  .home-hero-container {
-    padding: 2rem 1rem;
+  .home-hero-container, .how-it-works { padding: 2rem 1rem; }
+  h1 { font-size: 1.8rem; }
+  .subtext { font-size: 0.95rem; }
+  .hiw-title { font-size: 1.8rem; }
+  .hiw-subtitle { font-size: 0.95rem; }
+  .hiw-step { padding: 1.5rem 1rem; }
+  .how-it-works::before, .how-it-works::after { display: none; }
+}
+
+@media (max-width: 900px) {
+  .intro-section {
+    flex-direction: column;
+    text-align: center;
   }
 
-  h1 {
-    font-size: 1.8rem;
+  .intro-image {
+    width: 100%;
+    height: 300px;
   }
 
-  .subtext {
-    font-size: 0.95rem;
+  .intro-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .intro-content p {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-section {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-right {
+    padding-left: 0;
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+
+  .contact-right h2 {
+    font-size: 2rem;
   }
 }
