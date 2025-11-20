@@ -31,8 +31,8 @@ function Navbar() {
         <div className="navbar-links desktop-links">
           <a href="/about" onClick={(e) => handleLinkClick(e, "/about")}>About Us</a>
           <a href="/pricing" onClick={(e) => handleLinkClick(e, "/pricing")}>Pricing</a>
-          <a href="/tool" onClick={(e) => handleLinkClick(e, "/tool")}>Tool</a>
-          <a href="/blog" onClick={(e) => handleLinkClick(e, "/blog")}>Blog</a>
+          {/* <a href="/tool" onClick={(e) => handleLinkClick(e, "/tool")}>Tool</a> */}
+          {/* <a href="/blog" onClick={(e) => handleLinkClick(e, "/blog")}>Blog</a> */}
           <button className="btn-signup" onClick={() => handleLinkClick(null, "/signup")}>Sign Up</button>
           <button className="btn-login" onClick={() => handleLinkClick(null, "/login")}>Login</button>
         </div>
@@ -46,8 +46,8 @@ function Navbar() {
       <div className={`mobile-drawer ${drawerOpen ? "open" : ""}`}>
         <a href="/about" onClick={(e) => handleLinkClick(e, "/about")}>About Us</a>
         <a href="/pricing" onClick={(e) => handleLinkClick(e, "/pricing")}>Pricing</a>
-        <a href="/tool" onClick={(e) => handleLinkClick(e, "/tool")}>Tool</a>
-        <a href="/blog" onClick={(e) => handleLinkClick(e, "/blog")}>Blog</a>
+        {/* <a href="/tool" onClick={(e) => handleLinkClick(e, "/tool")}>Tool</a> */}
+        {/* <a href="/blog" onClick={(e) => handleLinkClick(e, "/blog")}>Blog</a> */}
         <button className="btn-signup" onClick={() => handleLinkClick(null, "/signup")}>Sign Up</button>
         <button className="btn-login" onClick={() => handleLinkClick(null, "/login")}>Login</button>
       </div>

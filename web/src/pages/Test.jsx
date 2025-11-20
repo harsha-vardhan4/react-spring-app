@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Test.css";
+import { FaUserFriends, FaStar, FaBriefcase } from "react-icons/fa";
+
 
 function Test() {
   const [countryCode, setCountryCode] = useState("+1");
@@ -21,23 +23,35 @@ function Test() {
     <main className="hero-two-column">
 
       {/* LEFT SIDE */}
-      <div className="hero-left">
-        <h1>
-          START YOUR <br />
-          <span className="highlight">CAREER</span> <br />
-          IN TECH
-        </h1>
+      <div className="hero-content">
 
-        <p className="hero-subtext">
-          Launch and boost your tech career fast with up to <b>43% off</b>
-        </p>
+  {/* Trust Badges */}
+  <div className="trust-badges">
+    <span>
+      <FaUserFriends /> 1500+ Job Seekers Helped
+    </span>
+    <span>
+      <FaStar /> 4.8 on Trustpilot
+    </span>
+    <span>
+      <FaBriefcase /> 9/10 Land job in 90 days
+    </span>
+  </div>
 
-        <ul className="hero-benefits">
-          <li>Earn a tech salary without coding experience</li>
-          <li>Land a job within a year or get your money back*</li>
-          <li>Mentorship, Internship and 1:1 Career Coaching</li>
-        </ul>
-      </div>
+  <h1>
+    START YOUR <br />
+    <span className="highlight">CAREER</span> <br />
+    IN TECH
+  </h1>
+
+  <p className="subtext">
+    Launch and boost your tech career fast with up to <b>43% off</b>.  
+    We will help you land a tech job even with no experience.
+  </p>
+
+  <button className="explore-btn">Explore Platform →</button>
+
+</div>
 
       {/* RIGHT SIDE */}
       <div className="hero-form-card small-form">
